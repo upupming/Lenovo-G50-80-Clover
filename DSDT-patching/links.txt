@@ -1,0 +1,14 @@
+=========================================== iasl =========================================
+
+https://bitbucket.org/RehabMan/acpica/downloads
+
+======================================== MaciASL =========================================
+
+https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads/
+
+================================== Laptop-DSDT-Patch =====================================
+
+http://raw.github.com/RehabMan/Laptop-DSDT-Patch/master
+
+==========================================================================================
+
