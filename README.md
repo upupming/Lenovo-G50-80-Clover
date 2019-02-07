@@ -4,7 +4,7 @@
 
 ```txt
 Model: Lenovo G50-80
-Bios version B0CNA0WW
+Bios version: B0CNA0WW
 CPU: i5 5200U, HD 5500 Graphic
 Ram: 8GB
 Hard drive: Kingston 256 GB SSD + 1 TB Seagate HDD
@@ -12,9 +12,11 @@ Audio: Conexant CX20752
 Ethernet: RTL8111
 ```
 
+> BIOS update can be found at [here](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/lenovo-g-series-laptops/g50-80/80e5/80e5007ccd/pf06sm0m/downloads?linkTrack=Caps%3ABody_SearchProduct&searchType=6&keyWordSearch=PF06SM0M), or simply use this link https://download.lenovo.com/consumer/mobiles/b0cna0ww.exe.
+
 ## DSDT patches
 
-See [patches](./DSDT-patching/patches.txt). I only patched `DSDT.aml` and ignored all `SSDT-*.aml`.
+See [patches.txt](./DSDT-patching/patches.txt). I only patched `DSDT.aml` and ignored all `SSDT-*.aml`.
 
 Please follow the [DSDT patching tutorial by RehabMan](https://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/) carefully, and you may find [this video](https://www.youtube.com/watch?v=RVMrwMW3jOY) very helpful.
 
