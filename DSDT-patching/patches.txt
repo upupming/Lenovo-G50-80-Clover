@@ -1,16 +1,11 @@
 
 ================================= Common Patches (DSDT) ==================================
 
-[igpu] Rename B0D3 to HDAU
-[igpu] Rename GFX0 to IGPU
-
 [syn] Fix ADBG Error
-[syn] Fix PARSEOP_ZERO Error
 [syn] Rename _DSM methods to XDSM
 
 [sys] Add IMEI
 [sys] Fix _WAK Arg0 v2
-[sys] Fix _WAK IAOE
 [sys] Fix Mutex with non-zero SyncLevel
 [sys] HPET Fix
 [sys] IRQ Fix
@@ -20,27 +15,26 @@
 
 ==================== Specific Patches (DSDT) for Lenovo G50-80 ===================
 
-[bat] Lenovo G50-70 (this is for battery)
-
+[bat] Lenovo G50-70 (For battery status)
 [igpu] Brightness fix (Haswell/Broadwell)
 
 [usb] 7-series/8-series USB
 [usb] USB_3PRW 0x6D (instant wake)
 
-##### Custom patch #####
-into method label _Q12 replace_content
-begin
-// Brightness Down\n
-    Notify (PS2K, 0x20)\n
-end;
+##### See Brightness keys post by RehabMan
 into method label _Q11 replace_content
 begin
-// Brightness Up\n
-    Notify (PS2K, 0x10)\n
+// Brightness Down\n
+    Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)\n
 end;
-#########################
+into method label _Q12 replace_content
+begin
+// Brightness Up\n
+    Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)\n
+end;
+#####
 
-================================ Common Patches (SSDTs) ==================================
+================================ Common Patches (SSDTs) (For me, not appiled yet)==================================
 
 Rename _DSM methods to XDSM
 Rename GFX0 to IGPU
