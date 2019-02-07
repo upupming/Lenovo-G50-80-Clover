@@ -21,6 +21,8 @@
 [usb] 7-series/8-series USB
 [usb] USB_3PRW 0x6D (instant wake)
 
+==================== Brightness shortcuts Patches (DSDT) for Lenovo G50-80 ===================
+
 ##### See Brightness keys post by RehabMan
 into method label _Q11 replace_content
 begin
