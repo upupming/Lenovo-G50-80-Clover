@@ -1,6 +1,6 @@
 # Hackintosh for Lenovo G50-80 (Broadwell 5200U version)
 
-Please read this file carefully. Simply copying my configuration file is very likely to not work. You should apply the same steps as mine to get your Hackintosh working on your laptop.
+Please read this file carefully. Simply copying my configuration file is very likely to not work, although you can still play around. You should apply the same steps as mine to get your Hackintosh working on your laptop.
 
 ## Specs
 
@@ -26,7 +26,7 @@ The patched results can be found at [EFI/CLOVER/ACPI/patched](EFI/CLOVER/ACPI/pa
 
 ### Brightness adjustment keys
 
-For me, my laptop use F11/F12 for brightness down/up, so I have to map these keys to brightness adjust methods. By following [Patching DSDT/SSDT for LAPTOP backlight control](https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/), I found my laptop use EC query methods (ACPI) for those keys. They are `_Q11` and `_Q12`. So the patch I used for mapping these keys is (see also in `patches.txt`):
+For me, my laptop use F11/F12 for brightness down/up, so I have to map these keys to brightness adjust methods. By following [Patching DSDT/SSDT for LAPTOP backlight control](https://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/), I found my laptop use EC query methods (ACPI) for those keys. (This is the case with most modern laptops.) The `Consloe.log` shows they are `_Q11` and `_Q12`. So the patch I used for mapping these keys is (see also in `patches.txt`):
 
 ```txt
 into method label _Q11 replace_content
@@ -47,7 +47,8 @@ The ACPI debug version of my EFI configuration can be found at [EFI_with_ACPI_DE
 
 All kexts used can be found at [EFI/CLOVER/kexts/Other](EFI/CLOVER/kexts/Other).
 
-- Audio: `VoodooPS2Controller.kext` (debug version for testing keys are PS2 or ACPI)
+- Keyboard and trackpad: `VoodooPS2Controller.kext` (debug version for testing keys are PS2 or ACPI), and I have to enable single tap on trackpad in `System Preferences -> Trackpad -> Tap to click`.
+- Audio: `VoodooPS2Controller.kext`
 - Ethernet: `RealtekRTL8111.kext`
 - Graphics: `Lilu.kext` + `WhateverGreen.kext`, note you will need use [config_HD5300_5500_6000.plist](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD5300_5500_6000.plist) by RehabMan to set `stolenmem` to 19 MB and `cursormem` to 9 MB, see [this](https://www.tonymacx86.com/threads/guide-alternative-to-the-minstolensize-patch-with-32mb-dvmt-prealloc.221506/) and [this](https://www.tonymacx86.com/threads/guide-intel-framebuffer-patching-using-whatevergreen.256490/). Also, you should enable 'Legacy support' in BIOS's boot tab to avoid glitches, see [this post](https://www.tonymacx86.com/threads/guide-intel-hd-graphics-5500-on-os-x-yosemite-10-10-3.162062/).
 
