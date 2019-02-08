@@ -1,4 +1,4 @@
-# Hackintosh for Lenovo G50-80 (Broadwell 5200U version)
+# Mojave Hackintosh for Lenovo G50-80 (Broadwell 5200U version)
 
 Please read this file carefully. Simply copying my configuration file is very likely to not work, although you can still play around. You should apply the same steps as mine to get your Hackintosh working on your laptop.
 
