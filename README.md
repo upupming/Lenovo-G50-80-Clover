@@ -41,14 +41,14 @@ begin
 end;
 ```
 
-The ACPI debug version of my EFI configuration can be found at [EFI_with_ACPI_DEBUG](./EFI_with_ACPI_DEBUG). I basically added the `ACPIDebug.kext` and then patched the DSDT with `Add DSDT Debug Methods` and `Instrument EC Queries` from https://github.com/RehabMan/OS-X-ACPI-Debug.
+The ACPI debug version of my EFI configuration can be found at [EFI_with_ACPI_DEBUG](./EFI_with_ACPI_DEBUG). I basically added the `ACPIDebug.kext` and then patched the DSDT with `Add DSDT Debug Methods` and `Instrument EC Queries` from https://github.com/RehabMan/OS-X-ACPI-Debug (add the source to `MaciASL`).
 
 ## Kexts
 
 All kexts used can be found at [EFI/CLOVER/kexts/Other](EFI/CLOVER/kexts/Other).
 
 - Keyboard and trackpad: `VoodooPS2Controller.kext` (debug version for testing keys are PS2 or ACPI), and I have to enable single tap on trackpad in `System Preferences -> Trackpad -> Tap to click`.
-- Audio: `VoodooPS2Controller.kext`
+- Audio: `VoodooHDA.kext`
 - Ethernet: `RealtekRTL8111.kext`
 - Graphics: `Lilu.kext` + `WhateverGreen.kext`, note you will need use [config_HD5300_5500_6000.plist](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD5300_5500_6000.plist) by RehabMan to set `stolenmem` to 19 MB and `cursormem` to 9 MB, see [this](https://www.tonymacx86.com/threads/guide-alternative-to-the-minstolensize-patch-with-32mb-dvmt-prealloc.221506/) and [this](https://www.tonymacx86.com/threads/guide-intel-framebuffer-patching-using-whatevergreen.256490/). Also, you should enable 'Legacy support' in BIOS's boot tab to avoid glitches, see [this post](https://www.tonymacx86.com/threads/guide-intel-hd-graphics-5500-on-os-x-yosemite-10-10-3.162062/).
 
