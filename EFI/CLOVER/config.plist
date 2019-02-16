@@ -221,12 +221,14 @@
 		<string>LastBootedVolume</string>
 		<key>Arguments</key>
 		<string>dart=0 kext-dev-mode=1 -cdfon -igfxnohdmi</string>
+		<key>DefaultVolume</key>
+		<string>LastBootedVolume</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>5</integer>
+		<integer>3</integer>
 	</dict>
 	<key>Comment</key>
 	<string>This file is for Broadwell graphics that are natively supported</string>
@@ -371,11 +373,6 @@
 		<dict>
 			<key>Inject</key>
 			<integer>0</integer>
-		</dict>
-		<key>FakeID</key>
-		<dict>
-			<key>IntelGFX</key>
-			<string>0x04128086</string>
 		</dict>
 		<key>Properties</key>
 		<dict>
