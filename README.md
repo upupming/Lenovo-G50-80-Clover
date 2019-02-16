@@ -58,7 +58,7 @@ All kexts used can be found at [EFI/CLOVER/kexts/Other](EFI/CLOVER/kexts/Other).
 At present, everything is working except:
 
 1. ~~Brightness adjustment~~ -- **Done**
-2. Wake from sleep
+2. ~~Wake from sleep~~ -- **Unsolvable** Disable sleep as a workaround, see [my post on tonymacx86](https://www.tonymacx86.com/threads/unsolvable-black-screen-when-waking-from-sleep-on-mojave-10-14-3-lenovo-g50-80.271315/).
 
 ## Links
 

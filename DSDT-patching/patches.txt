@@ -4,7 +4,6 @@
 [syn] Fix ADBG Error
 [syn] Rename _DSM methods to XDSM
 
-[sys] Add IMEI
 [sys] Fix _WAK Arg0 v2
 [sys] Fix Mutex with non-zero SyncLevel
 [sys] HPET Fix
@@ -16,7 +15,6 @@
 ==================== Specific Patches (DSDT) for Lenovo G50-80 ===================
 
 [bat] Lenovo G50-70 (For battery status)
-[igpu] Brightness fix (Haswell/Broadwell)
 
 [usb] 7-series/8-series USB
 [usb] USB_3PRW 0x6D (instant wake)

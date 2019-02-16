@@ -5,7 +5,7 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of DSDT.aml, Wed Feb  6 06:47:04 2019
+ * Disassembly of DSDT.aml, Sat Feb 16 09:44:34 2019
  *
  * Original Table Header:
  *     Signature        "DSDT"
@@ -2695,10 +2695,6 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "CB-01   ", 0x00000001)
                 {
                     Name (_ADR, 0x00040000)  // _ADR: Address
                 }
-            }
-            Device (IMEI)
-            {
-                Name (_ADR, 0x00160000)
             }
         }
     }
