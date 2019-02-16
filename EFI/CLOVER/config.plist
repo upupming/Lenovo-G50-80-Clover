@@ -129,7 +129,7 @@
 					<key>Comment</key>
 					<string>change GFX0 to IGPU</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					R0ZYMA==
@@ -384,6 +384,10 @@
 				<string>some HD5500 need this, such as i3-5005U; enable as required</string>
 				<key># note1</key>
 				<string>flags 06000000 also used for HDMI</string>
+				<key>#device-id</key>
+				<data>
+				JhYAAA==
+				</data>
 				<key>#framebuffer-con1-enable</key>
 				<integer>1</integer>
 				<key>#framebuffer-con1-flags</key>
@@ -426,13 +430,11 @@
 				<data>
 				AAgAAA==
 				</data>
+				<key>#hda-gfx</key>
+				<string>onboard-1</string>
 				<key>AAPL,ig-platform-id</key>
 				<data>
 				AgAWFg==
-				</data>
-				<key>device-id</key>
-				<data>
-				JhYAAA==
 				</data>
 				<key>framebuffer-fbmem</key>
 				<data>
@@ -444,8 +446,6 @@
 				<data>
 				AAA0AQ==
 				</data>
-				<key>hda-gfx</key>
-				<string>onboard-1</string>
 			</dict>
 			<key>PciRoot(0)/Pci(0x03,0)</key>
 			<dict>
@@ -542,6 +542,11 @@
 		</dict>
 		<key>#ig-platform-id</key>
 		<string>0x16260006</string>
+		<key>EDID</key>
+		<dict>
+			<key>Inject</key>
+			<false/>
+		</dict>
 		<key>Inject</key>
 		<dict>
 			<key>ATI</key>
@@ -650,10 +655,57 @@
 		<string>MacBook8,1</string>
 		<key>#ProductName-MacBookAir7</key>
 		<string>MacBookAir7,1</string>
+		<key>BiosReleaseDate</key>
+		<string>09/17/2018</string>
+		<key>BiosVendor</key>
+		<string>Apple Inc.</string>
+		<key>BiosVersion</key>
+		<string>MBP121.88Z.0178.B00.1809171422</string>
+		<key>Board-ID</key>
+		<string>Mac-E43C1C25D4880AD6</string>
+		<key>BoardManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>BoardSerialNumber</key>
+		<string>C02604270CDGDVVCB</string>
+		<key>BoardType</key>
+		<integer>10</integer>
+		<key>BoardVersion</key>
+		<string>1.0</string>
+		<key>ChassisAssetTag</key>
+		<string>MacBook-Aluminum</string>
+		<key>ChassisManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>ChassisType</key>
+		<string>0x09</string>
+		<key>EfiVersion</key>
+		<string>180.0.0.0.0</string>
+		<key>Family</key>
+		<string>MacBook Pro</string>
+		<key>FirmwareFeatures</key>
+		<string>0xFC0FE137</string>
+		<key>FirmwareFeaturesMask</key>
+		<string>0xFF1FFF3F</string>
+		<key>LocationInChassis</key>
+		<string>Part Component</string>
+		<key>Manufacturer</key>
+		<string>Apple Inc.</string>
+		<key>Memory</key>
+		<dict>
+			<key>Channels</key>
+			<integer>0</integer>
+		</dict>
+		<key>Mobile</key>
+		<true/>
+		<key>PlatformFeature</key>
+		<string>0x02</string>
 		<key>ProductName</key>
 		<string>MacBookPro12,1</string>
-		<key>Trust</key>
-		<true/>
+		<key>SerialNumber</key>
+		<string>C02R5NZEH1DP</string>
+		<key>SmUUID</key>
+		<string>BA452A2E-3D84-4960-88DE-E1A59D48EE32</string>
+		<key>Version</key>
+		<string>1.0</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
