@@ -388,19 +388,9 @@
 				<data>
 				JhYAAA==
 				</data>
-				<key>#framebuffer-con1-enable</key>
-				<integer>1</integer>
-				<key>#framebuffer-con1-flags</key>
-				<data>
-				ggAAAA==
-				</data>
 				<key>#framebuffer-con1-pipe</key>
 				<data>
 				EgAAAA==
-				</data>
-				<key>#framebuffer-con1-type</key>
-				<data>
-				AAgAAA==
 				</data>
 				<key>#framebuffer-con2-enable</key>
 				<integer>1</integer>
@@ -430,11 +420,19 @@
 				<data>
 				AAgAAA==
 				</data>
-				<key>#hda-gfx</key>
-				<string>onboard-1</string>
 				<key>AAPL,ig-platform-id</key>
 				<data>
 				AgAWFg==
+				</data>
+				<key>framebuffer-con1-enable</key>
+				<integer>1</integer>
+				<key>framebuffer-con1-flags</key>
+				<data>
+				ggAAAA==
+				</data>
+				<key>framebuffer-con1-type</key>
+				<data>
+				AAgAAA==
 				</data>
 				<key>framebuffer-fbmem</key>
 				<data>
@@ -446,19 +444,21 @@
 				<data>
 				AAA0AQ==
 				</data>
+				<key>hda-gfx</key>
+				<string>onboard-1</string>
 			</dict>
 			<key>PciRoot(0)/Pci(0x03,0)</key>
 			<dict>
-				<key>#hda-gfx</key>
-				<string>onboard-1</string>
-				<key>#layout-id</key>
-				<integer>3</integer>
 				<key>#no-controller-patch</key>
 				<integer>1</integer>
+				<key>hda-gfx</key>
+				<string>onboard-1</string>
+				<key>layout-id</key>
+				<integer>3</integer>
 			</dict>
 			<key>PciRoot(0)/Pci(0x1b,0)</key>
 			<dict>
-				<key>#layout-id</key>
+				<key>layout-id</key>
 				<integer>3</integer>
 			</dict>
 		</dict>
