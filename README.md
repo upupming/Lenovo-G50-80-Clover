@@ -1,6 +1,6 @@
 # Mojave Hackintosh for Lenovo G50-80 (Broadwell 5200U version)
 
-Please read this file carefully. Simply copying my configuration file is very likely to not work, although you can still play around. You should apply the same steps as mine to get your Hackintosh working on your laptop.
+Warning: Please read this file carefully. Simply copying my configuration file is very likely to not work, although you can still play around. You should apply the same steps as mine to get your Hackintosh working on your laptop.
 
 ## Specs
 
@@ -43,9 +43,52 @@ end;
 
 The ACPI debug version of my EFI configuration can be found at [EFI_with_ACPI_DEBUG](./EFI_with_ACPI_DEBUG). I basically added the `ACPIDebug.kext` and then patched the DSDT with `Add DSDT Debug Methods` and `Instrument EC Queries` from https://github.com/RehabMan/OS-X-ACPI-Debug (add the source to `MaciASL`).
 
+## Bluetooth
+
+Go to Windows device manager and find your bluetooth's vid and pid information:
+
+```txt
+USB\VID_105B&PID_E065&REV_0112
+USB\VID_105B&PID_E065
+```
+
+Convert the hex to decimal using google search or any tool you prefer:
+
+```txt
+hex E065 == decimal 57445
+hex 105B == decimal 4187
+```
+
+Add the following to `S/L/E/IOBluetoothFamily.kext/Contents/PlugIns/BroadcomBluetoothHostControllerUSBTransport.kext/Contents/Info.plist` -> `IOKitPersonalities`:
+
+```plist
+<dict>
+	<key>Lenovo G50 80 Bluetooth</key>
+	<string>com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport</string>
+	<key>IOClass</key>
+	<string>BroadcomBluetoothHostControllerUSBTransport</string>
+	<key>IOProviderClass</key>
+	<string>IOUSBHostDevice</string>
+	<key>idProduct</key>
+	<integer>57445</integer>
+	<key>idVendor</key>
+	<integer>4187</integer>
+</dict>
+```
+
+A demo patched `Info.plist` can be found at [Bluetooth/Info.plist](Bluetooth/Info.plist).
+
+Note that in order to let the native Bluetooth work, we have to boot into Windows or Linux first, and then restart into macOS. See [here](https://github.com/daliansky/XiaoMi-Pro/issues/50). This is known as **RAMUSB device firmware update problem**. If you find any solution or want to discuss/fix this, please open an issue.
+
+<details><summary>Test of transferring files to my Pixel phone using bluetooth</summary>
+
+![20190307162150.png](https://i.loli.net/2019/03/07/5c80d4a1b8c69.png)
+
+</details>
+
 ## Kexts
 
-All kexts used can be found at [EFI/CLOVER/kexts/Other](EFI/CLOVER/kexts/Other).
+Note: All kexts used can be found at [EFI/CLOVER/kexts/Other](EFI/CLOVER/kexts/Other), and I prefer to only install kexts to EFI folder instead of /S/L/E or /L/E for better update experience.
 
 - Keyboard and trackpad: `VoodooPS2Controller.kext` (I used the debug version for testing keys are PS2 or ACPI). I personally would like to enable single tap on trackpad in `System Preferences -> Trackpad -> Tap to click`, also enable one-finger tap & drag in `System Preferences -> Accessibility -> Mouse & Trackpad -> Trackpad options -> Enable dragging without drag lock`.
 - Audio: `AppleALC.kext` + `layout-id=3`, HDMI audio fixed with `WhateverGreen` framebuffer patching, see [here](https://www.tonymacx86.com/threads/guide-intel-igpu-hdmi-dp-audio-all-sandy-bridge-kaby-lake-and-likely-later.189495/).
@@ -67,3 +110,5 @@ At present, everything is working except:
 3. [Solve error when patching DSDTs](https://www.tonymacx86.com/threads/fixing-a-couple-of-errors-in-dsdt.259284/)
 4. [Guide for i3 version of Lenovo G50-80 in tonymacx86](https://www.tonymacx86.com/threads/guide-lenovo-g50-80-80l0-and-high-sierra-10-13-4-updated-to-10-13-5.254285/)
 5. [Video guide for i3 version](https://youtu.be/Th_G7BMNiSI)
+6. [Get bluetooth vid & pid from windows](http://bbs.memacx.com/thread-5209-1-1.html)
+7. [Inject bluetooth kext](http://www.yekki.me/how-to-make-a-bt-injector/)
