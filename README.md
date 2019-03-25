@@ -16,7 +16,7 @@ Audio: Conexant CX20752
 Ethernet: RTL8111
 ```
 
-> BIOS update and specs can be found at [here](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/lenovo-g-series-laptops/g50-80/80e5/80e5007ccd/pf06sm0m/downloads?linkTrack=Caps%3ABody_SearchProduct&searchType=6&keyWordSearch=PF06SM0M), or simply use this link https://download.lenovo.com/consumer/mobiles/b0cna0ww.exe to download the BIOS upadte.
+> BIOS update and specs can be found at [here](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/lenovo-g-series-laptops/g50-80/80e5/80e5007ccd/pf06sm0m/downloads?linkTrack=Caps%3ABody_SearchProduct&searchType=6&keyWordSearch=PF06SM0M), or simply use this link https://download.lenovo.com/consumer/mobiles/b0cna0ww.exe to download the BIOS update.
 
 ## DSDT patches
 
