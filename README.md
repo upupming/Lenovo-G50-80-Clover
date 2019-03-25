@@ -1,6 +1,8 @@
 # Mojave Hackintosh for Lenovo G50-80 (Broadwell 5200U version)
 
-Warning: Please read this file carefully. Simply copying my configuration file is very likely to not work, although you can still play around. You should apply the same steps as mine to get your Hackintosh working on your laptop.
+Warning: Please read this guide carefully. Simply copying my configuration file is very likely to not work (because there are many different Lenovo G50-80 according to [PSREF](http://psref.lenovo.com/Product/Lenovo_Laptops/Lenovo_G50)), although you can still play around. You should apply the same steps as mine to get your Hackintosh working on your laptop. If you still want to try, please download it [here](https://codeload.github.com/upupming/Lenovo-G50-80-Clover/zip/master).
+
+Happy hacking :wink:
 
 ## Specs
 
@@ -18,7 +20,7 @@ Ethernet: RTL8111
 
 ## DSDT patches
 
-See [patches.txt](./DSDT-patching/patches.txt). I only patched `DSDT.aml` and ignored all `SSDT-*.aml`.
+See [patches.txt](https://github.com/upupming/Lenovo-G50-80-Clover/blob/master/DSDT-patching/patches.txt). I only patched `DSDT.aml` and ignored all `SSDT-*.aml`.
 
 Please follow the [DSDT patching tutorial by RehabMan](https://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/) carefully, and you may find [this video](https://www.youtube.com/watch?v=RVMrwMW3jOY) very helpful.
 
@@ -41,7 +43,7 @@ begin
 end;
 ```
 
-The ACPI debug version of my EFI configuration can be found at [EFI_with_ACPI_DEBUG](./EFI_with_ACPI_DEBUG). I basically added the `ACPIDebug.kext` and then patched the DSDT with `Add DSDT Debug Methods` and `Instrument EC Queries` from https://github.com/RehabMan/OS-X-ACPI-Debug (add the source to `MaciASL`).
+The ACPI debug version of my EFI configuration can be found at [EFI_with_ACPI_DEBUG](https://github.com/upupming/Lenovo-G50-80-Clover/blob/master/EFI_with_ACPI_DEBUG). I basically added the `ACPIDebug.kext` and then patched the DSDT with `Add DSDT Debug Methods` and `Instrument EC Queries` from https://github.com/RehabMan/OS-X-ACPI-Debug (add the source to `MaciASL`).
 
 ## Bluetooth
 
