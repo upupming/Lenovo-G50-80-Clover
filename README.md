@@ -4,6 +4,18 @@ Warning: Please read this guide carefully. Simply copying my configuration file 
 
 Happy hacking :wink:
 
+## Table of Contents
+
+- [Mojave Hackintosh for Lenovo G50-80 (Broadwell 5200U version)](#mojave-hackintosh-for-lenovo-g50-80-broadwell-5200u-version)
+  - [Table of Contents](#table-of-contents)
+  - [Specs](#specs)
+  - [DSDT patches](#dsdt-patches)
+    - [Brightness adjustment keys](#brightness-adjustment-keys)
+  - [Kexts](#kexts)
+  - [Bluetooth](#bluetooth)
+  - [Further working](#further-working)
+  - [Links](#links)
+
 ## Specs
 
 ```txt
@@ -44,6 +56,16 @@ end;
 ```
 
 The ACPI debug version of my EFI configuration can be found at [EFI_with_ACPI_DEBUG](https://github.com/upupming/Lenovo-G50-80-Clover/blob/master/EFI_with_ACPI_DEBUG). I basically added the `ACPIDebug.kext` and then patched the DSDT with `Add DSDT Debug Methods` and `Instrument EC Queries` from https://github.com/RehabMan/OS-X-ACPI-Debug (add the source to `MaciASL`).
+
+## Kexts
+
+Note: All kexts used can be found at [EFI/CLOVER/kexts/Other](EFI/CLOVER/kexts/Other), and I prefer to only install kexts to EFI folder instead of /S/L/E or /L/E for better update experience.
+
+- Keyboard and trackpad: `VoodooPS2Controller.kext` (I used the debug version for testing keys are PS2 or ACPI). I personally would like to enable single tap on trackpad in `System Preferences -> Trackpad -> Tap to click`, also enable one-finger tap & drag in `System Preferences -> Accessibility -> Mouse & Trackpad -> Trackpad options -> Enable dragging without drag lock`.
+- Audio: `AppleALC.kext` + `layout-id=3`, HDMI audio fixed with `WhateverGreen` framebuffer patching, see [here](https://www.tonymacx86.com/threads/guide-intel-igpu-hdmi-dp-audio-all-sandy-bridge-kaby-lake-and-likely-later.189495/).
+- Ethernet: `RealtekRTL8111.kext`
+- Graphics: `Lilu.kext` + `WhateverGreen.kext`, note you will need use [config_HD5300_5500_6000.plist](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD5300_5500_6000.plist) by RehabMan to set `stolenmem` to 19 MB and `cursormem` to 9 MB, see [this](https://www.tonymacx86.com/threads/guide-alternative-to-the-minstolensize-patch-with-32mb-dvmt-prealloc.221506/) and [this](https://www.tonymacx86.com/threads/guide-intel-framebuffer-patching-using-whatevergreen.256490/). Also, you should enable 'Legacy support' in BIOS's boot tab to avoid glitches, see [this post](https://www.tonymacx86.com/threads/guide-intel-hd-graphics-5500-on-os-x-yosemite-10-10-3.162062/).
+- Battery status: `ACPIBatteryManager.kext` + the `[bat] Lenovo G50-70` DSDT patch
 
 ## Bluetooth
 
@@ -88,22 +110,12 @@ Note that in order to let the native Bluetooth work, we have to boot into Window
 
 </details>
 
-## Kexts
-
-Note: All kexts used can be found at [EFI/CLOVER/kexts/Other](EFI/CLOVER/kexts/Other), and I prefer to only install kexts to EFI folder instead of /S/L/E or /L/E for better update experience.
-
-- Keyboard and trackpad: `VoodooPS2Controller.kext` (I used the debug version for testing keys are PS2 or ACPI). I personally would like to enable single tap on trackpad in `System Preferences -> Trackpad -> Tap to click`, also enable one-finger tap & drag in `System Preferences -> Accessibility -> Mouse & Trackpad -> Trackpad options -> Enable dragging without drag lock`.
-- Audio: `AppleALC.kext` + `layout-id=3`, HDMI audio fixed with `WhateverGreen` framebuffer patching, see [here](https://www.tonymacx86.com/threads/guide-intel-igpu-hdmi-dp-audio-all-sandy-bridge-kaby-lake-and-likely-later.189495/).
-- Ethernet: `RealtekRTL8111.kext`
-- Graphics: `Lilu.kext` + `WhateverGreen.kext`, note you will need use [config_HD5300_5500_6000.plist](https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/config_HD5300_5500_6000.plist) by RehabMan to set `stolenmem` to 19 MB and `cursormem` to 9 MB, see [this](https://www.tonymacx86.com/threads/guide-alternative-to-the-minstolensize-patch-with-32mb-dvmt-prealloc.221506/) and [this](https://www.tonymacx86.com/threads/guide-intel-framebuffer-patching-using-whatevergreen.256490/). Also, you should enable 'Legacy support' in BIOS's boot tab to avoid glitches, see [this post](https://www.tonymacx86.com/threads/guide-intel-hd-graphics-5500-on-os-x-yosemite-10-10-3.162062/).
-- Battery status: `ACPIBatteryManager.kext` + the `[bat] Lenovo G50-70` DSDT patch
-
 ## Further working
 
 At present, everything is working except:
 
 1. ~~Brightness adjustment~~ -- **Done**
-2. ~~Wake from sleep~~ -- **Unsolvable** Disable sleep as a workaround, see [my post on tonymacx86](https://www.tonymacx86.com/threads/unsolvable-black-screen-when-waking-from-sleep-on-mojave-10-14-3-lenovo-g50-80.271315/).
+2. ~~Wake from sleep~~ -- **Unsolvable** Disable sleep as a workaround, see [my post on tonymacx86](https://www.tonymacx86.com/threads/unsolvable-black-screen-when-waking-from-sleep-on-mojave-10-14-3-lenovo-g50-80.271315/). Discussions are welcome there!
 
 ## Links
 
